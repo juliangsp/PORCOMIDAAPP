@@ -1,0 +1,357 @@
+<!-- FIRST ============================================================-->
+<script id='firstT' type='text/ractive'>
+    
+
+	 <div data-role="header" id="headerLogo" data-position="fixed">
+        <div id="logoHeader">
+		<img src="img/logo.png">
+		</div>
+    </div>
+
+    <div role="main" class="ui-content">
+           <button on-tap="login">Ingresar a mi cuenta</button>
+           <button  on-tap="registro">Registrarme</button>
+    </div><!-- /content -->
+    
+
+</script>
+
+<!--  LOGIN ============================================================-->
+<script id='loginT' type='text/ractive'>
+    
+    <div data-role="header" data-position="fixed">
+    <h1>Ingresar</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+
+	<h2>Ingresar a mi cuenta</h2>
+            <label for="name">Correo:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <label for="password">Contraseña: <a href="#recuperar">¿Olvidaste tu contraseña?</a></label> <a href="#recuperar"></a>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" on-tap="cancelar">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" on-tap="ingresar">Ingresar</a></div>
+            </div>
+    </div>
+    
+
+</script>
+
+<!--  Recuperar ============================================================-->
+<script id='recuperarT' type='text/ractive'>
+    
+    <div data-role="header" data-position="fixed">
+    <h1>Recuperar</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+
+	<h2>Ingresa tu correo y te enviaremos tu contraseña</h2>
+            <label for="name">Correo:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" on-tap="cancelar">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" on-tap="recuperar">Enviar correo</a></div>
+            </div>
+    </div>
+    
+
+</script>
+
+<!--  REGISTRO ============================================================-->
+<script id='registroT' type='text/ractive'>
+    
+
+	  <div data-role="header" data-position="fixed">
+    <a href="#firstP"  data-direction="reverse" data-icon="back">&nbsp;</a>
+    <h1>Registro</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+
+	<h2>Registro de Usuario</h2>
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            
+            <label for="password">Apellido Paterno:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+
+            <label for="password">Apellido Materno:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+            <label for="password">Correo elctrónico:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+            <label for="password">Teléfono Fijo:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+            <label for="password">Teléfono Móvil:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+            <label for="password">ID Tarjeta:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+            <label for="password">Origen de la  Targeta:</label>
+            <select>
+            	<option>Aseguradora</option>
+            	<option>Outsourcing</option>
+            	<option>Flotilla Empresa</option>
+            	<option>Particular</option>
+            </select>
+
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" on-tap="cancelar">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" on-tap="ingresar">Ingresar</a></div>
+            </div>
+    </div>
+
+    
+
+</script>
+
+
+
+
+<!--  HOME ============================================================-->
+	<script id='mainT' type='text/ractive'>
+    
+	{{>menuT}}
+
+	 <div data-role="header" id="headerLogo" data-position="fixed">
+        <div id="logoHeader">
+		<img src="img/logo.png">
+	</div>
+
+     <!--   <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>  -->
+        <a href="#add-form" data-icon="gear" class="ui-btn-right" data-iconpos="notext">Info</a>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+           <div id="wrapperMain" >
+		       <div id="scroller">
+		             <ul data-role="listview" id="listview">
+		               {{#each items}}
+							<li>
+							<div class="listMain" on-tap="getSuc">
+								<div class="icoDiv"><i class="icoMain  fa {{ico}}"></i></div>
+								<div class="mainIcoText"> {{text}}</div>
+
+								
+							</div>
+							</li>
+						{{/each}}
+		             </ul>
+		        </div>
+		</div>
+    </div><!-- /content -->
+    
+ 
+      
+      <div id="map" style="display:none;"></div>
+
+    </script>
+
+
+
+<!-- Listado 1  ============================================================-->
+<script id='listT' type='text/ractive'>
+
+	<div data-role="header" data-position="fixed">
+    <a href="#mainScreen"  data-direction="reverse" data-icon="back">&nbsp;</a>
+    <h1>Sucursales</h1>
+    <a href="#mapa" data-icon="check">Mapa</a>
+    </div>
+
+	<div id="wrapperList">
+	    <div id="scroller" data-iscroll>
+	        <ul data-role="listview" id="listview">
+	            {{#each items}}
+	            <li>
+	                <a on-tap="listDetail" data-transition="fade">
+	                    <div class="small-8 column">
+	                        <div class="nSucursal">{{nSucursal}}</div>
+	                        <div class="tags">{{tags}}</div>
+	                    </div>
+	                    <div class="small-4 column">
+	                        <div class="distancia">{{distancia}}</div>
+	                    </div>
+	                </a>
+	            </li>
+	            {{/each}}
+	        </ul>
+	    </div>
+
+
+
+</script>
+
+
+<!-- Especialidades  ============================================================-->
+<script id='especT' type='text/ractive'>
+
+	<div data-role="header" data-position="fixed">
+    <a href="#mainScreen"  data-direction="reverse" data-icon="back">&nbsp;</a>
+    <h1>Especialidad</h1>
+
+
+	<div id="wrapperList">
+	    <div id="scroller">
+	        <ul data-role="listview" id="listview">
+	            {{#each items}}
+	            <li>
+	                <a on-tap="listDetail" data-transition="fade">
+	                    <div class="small-8 column">
+	                        <div on-tap="getSuc" class="nSucursal">{{text}}</div>
+	                       
+	                    </div>
+	                    
+	                </a>
+	            </li>
+	            {{/each}}
+	        </ul>
+	    </div>
+	</div>
+
+</script>
+
+<!-- Descuento  ============================================================-->
+<script id='descuentoT' type='text/ractive'>
+
+	<div data-role="header" data-position="fixed">
+    <a href="#mainScreen"  data-direction="reverse" data-icon="back">&nbsp;</a>
+    <h1>Descuentos</h1>
+
+
+	<div id="wrapperList">
+	    <div id="scroller">
+	        <ul data-role="listview" id="listview">
+	            {{#each items}}
+	            <li>
+	                <a on-tap="listDetail" data-transition="fade">
+	                    <div class="small-8 column">
+	                        <div on-tap="getSuc" class="nSucursal">{{text}}</div>
+	                       
+	                    </div>
+	                    
+	                </a>
+	            </li>
+	            {{/each}}
+	        </ul>
+	    </div>
+	</div>
+
+</script>
+
+<!--  MAPA ============================================================-->
+	<script id='mapaT' type='text/ractive'>
+    
+	<div data-role="header" data-position="fixed">
+	    <a href="#infoSuc" data-direction="reverse" data-icon="back">&nbsp;</a>
+	    <h1>Ubicación Sucursal</h1>   
+	</div>
+
+	 <div role="main" class="ui-content">
+	<div style="display:none;"><input  id="pac-input" type="text" placeholder="Escribe tu dirección, Código Postal ó Ciudad" /></div>
+	<div id="ubica"></div>
+	</div>
+
+	
+
+</script>
+
+
+
+<!--  Info Sucursal ============================================================-->
+<script id='infoT' type='text/ractive'>
+
+	<div data-role="header" data-position="fixed"  >
+	    <a href="#list"  data-icon="back">&nbsp;</a>
+	    <h1>Información Sucursal</h1>
+	</div>
+	
+	<div  role="main" class="ui-content">
+	    <div class="small-8 column">
+	        <div class="info_nSucursal">{{nSucursal}}</div>
+	        <div class="info_tags">{{tags}}</div>
+	        <div class="info_direccion">{{direccion}}</div>
+	        <div class="info_estado">{{estado}}</div>
+	        <div class="info_cp">{{cp}}</div>
+	        <div class="info_tel1">{{tel1}}</div>
+	    </div>
+	    <div class="small-4 column">
+	        <div class="distancia">{{distancia}}</div>
+	    </div>
+	    <div class="small-12 column">
+	        <button on-tap="genMap">Ver mapa de ubicación</button>
+	    </div>
+	</div>
+
+	<div data-role="footer" data-position="fixed">
+	    <h4>Autotips</h4>
+	</div>
+      
+</script>
+
+
+<!--
+ 	   <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="#panel-fixed-page2">Accordion</a></li>
+                <li><a href="#panel-fixed-page2">AJAX Navigation</a></li>
+                <li><a href="#panel-fixed-page2">Autocomplete</a></li>
+                <li><a href="#panel-fixed-page2">Buttons</a></li>
+          
+        </ul>
+    </div>
+     -->
+<!--  LOGIN ============================================================-->
+<script id='contactoT' type='text/ractive'>
+    
+   <div data-role="header" data-position="fixed">
+	    <a href="#mainScreen"  data-icon="back">&nbsp;</a>
+	    <h1>Contáctanos</h1>
+	</div>
+	
+
+    <div  role="main" class="ui-content">
+
+	<h2>Envía tus comentarios</h2>
+            <label for="name">Correo:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <label for="password">Comentarios:</label> <a href="#recuperar"></a>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" on-tap="cancelar">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#contactoListo" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" on-tap="ingresar">Enviar</a></div>
+            </div>
+    </div>
+    
+
+</script>
+
+<!--  MENU ============================================================-->
+<script id='menuT' type='text/html'>
+ 
+
+
+    <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+        <form class="userform">
+            <h2>Usuario</h2>
+            <label for="name">Nombre de usuario:</label>
+            <h3>Carlos Zarate Mendoza</h3>
+
+            <label for="name">ID tarjeta:</label>
+            <h3>AT-0014RT2</h3>
+            
+            
+            <label for="name"><a class="ui-btn" href="#firstP">cerrar sesión</a></label>
+
+        </form>
+    </div><!-- /panel -->
+
+</script>

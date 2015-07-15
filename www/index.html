@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AUTOTIPS</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+<link rel="stylesheet" href="icos/icon-pack-custom.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link rel='stylesheet' href='css/leaflet.css'/>
+
+<!-- JS -->
+<script src="js/lib/iscroll.js"></script>
+<script src="cordova.js"></script>
+<script src="js/lib/jquery-1.11.2.min.js"></script>
+<script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="js/lib/foundation/foundation.js"></script>
+<script src="js/lib/ractive.js"></script>
+<script src="js/lib/ractive-events-keys.js"></script>
+<script src="js/lib/ractive-events-tap.js"></script>
+
+<script src='js/utilities/utilities.js'></script>
+<script src="js/lib/handlebars-v1.3.0.js"></script>
+<script src='js/lib/defiant.js'></script>
+<script src='js/lib/leaflet.js'></script>
+<script src='js/lib/leaflet-providers.js'></script>
+
+
+<!-- CONTROLLERS -->
+<script src="js/controllers/ctrl_core.js"></script>     <!-- ROUTE CONTROLLER -->
+<script src="js/controllers/mainController.js"></script>  <!-- FOUNDATION &  DB CONTROLLER -->
+<script src="js/controllers/ctrl_main.js"></script>   <!-- START CORDOVA CONTROLLER -->
+
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'></script>
+
+<script src='js/lib/fastbutton.js'></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=yes" />
+<meta name="msapplication-tap-highlight" content="no" />
+
+
+</head>
+  <body class=''>
+
+
+<div data-role="page" id="firstP"></div>
+<div data-role="page" id="login"></div>
+<div data-role="page" id="registro"></div>
+<div data-role="page" id="recuperar"></div>
+<div data-role="page" id="recuperarListo">
+	  <div data-role="header" data-position="fixed">
+    <h1>Recuperar</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+    	Se ha enviado un correo con tu contraseña.
+    	<a href="#firstP" class="ui-btn">Regresar a principal</a>
+    </div>
+</div>
+<div data-role="page" id="mainScreen"></div>
+<div data-role="page" id="list"></div>
+<div data-role="page" id="especialidad"></div>
+<div data-role="page" id="descuento"></div>
+<div data-role="page" id="calificacion"></div>
+<div data-role="page" id="mapa"></div>
+<div data-role="page" id="mapaSuc"></div>
+<div data-role="page" id="infoSuc"></div>
+<div data-role="page" id="contacto"></div>
+
+<div data-role="page" id="contactoListo">
+	  <div data-role="header" data-position="fixed">
+    <h1>Enviado</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+    	Se ha enviado un correo con tus comentarios. Te contestaremos a la brevedad.
+    	<a href="#mainScreen" class="ui-btn">Regresar a principal</a>
+    </div>
+</div>
+
+
+<div id="templateLoader" style="display:none"></div>
+
+
+  </body>
+</html>
