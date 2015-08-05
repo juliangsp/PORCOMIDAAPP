@@ -24,22 +24,24 @@ function onDeviceReady(){
 
 $(document).ready(function() {
 
-
-
     if(deploy=="DEV"){
         initApp();
     } else {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
+   
+
 });
 
 function initApp(){
+ 
+   $.mobile.defaultPageTransition = 'slide';
 
-   $.mobile.defaultPageTransition = 'none';
-   $.mobile.defaultHomeScroll = 0;
-  
-   		mainC.init(ctrl_core.init)
+  mainC.init()
+
 }
+
+
 
 
 //keytool -genkey -v -keystore expoina.keystore -alias expoina -keyalg RSA -keysize 2048 -validity 10000
@@ -47,5 +49,4 @@ function initApp(){
 
 
 function openDeviceBrowser (externalLinkToOpen){  window.open(externalLinkToOpen, '_system', 'location=no');}
-
 

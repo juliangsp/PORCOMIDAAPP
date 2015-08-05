@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AUTOTIPS</title>
+	<title>porcomida.com</title>
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/foundation.min.css">
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
-<link rel="stylesheet" href="icos/icon-pack-custom.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <link rel='stylesheet' href='css/leaflet.css'/>
@@ -22,21 +21,25 @@
 <script src="js/lib/ractive-events-keys.js"></script>
 <script src="js/lib/ractive-events-tap.js"></script>
 
+
 <script src='js/utilities/utilities.js'></script>
 <script src="js/lib/handlebars-v1.3.0.js"></script>
 <script src='js/lib/defiant.js'></script>
 <script src='js/lib/leaflet.js'></script>
+<script src='js/lib/hashids.min.js'></script>
 <script src='js/lib/leaflet-providers.js'></script>
-
+<script src="js/numeral/min/numeral.min.js"></script>
 
 <!-- CONTROLLERS -->
+<script src="js/controllers/ctrl_login.js"></script>  
+<script src="js/controllers/ctrl_order.js"></script> 
 <script src="js/controllers/ctrl_core.js"></script>     <!-- ROUTE CONTROLLER -->
 <script src="js/controllers/mainController.js"></script>  <!-- FOUNDATION &  DB CONTROLLER -->
 <script src="js/controllers/ctrl_main.js"></script>   <!-- START CORDOVA CONTROLLER -->
 
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'></script>
-
-<script src='js/lib/fastbutton.js'></script>
+ <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+        
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
@@ -47,44 +50,45 @@
 </head>
   <body class=''>
 
-
-<div data-role="page" id="firstP"></div>
-<div data-role="page" id="login"></div>
-<div data-role="page" id="registro"></div>
-<div data-role="page" id="recuperar"></div>
-<div data-role="page" id="recuperarListo">
-	  <div data-role="header" data-position="fixed">
-    <h1>Recuperar</h1>
-    </div>
-
-    <div  role="main" class="ui-content">
-    	Se ha enviado un correo con tu contraseña.
-    	<a href="#firstP" class="ui-btn">Regresar a principal</a>
-    </div>
-</div>
 <div data-role="page" id="mainScreen"></div>
-<div data-role="page" id="list"></div>
-<div data-role="page" id="especialidad"></div>
-<div data-role="page" id="descuento"></div>
-<div data-role="page" id="calificacion"></div>
-<div data-role="page" id="mapa"></div>
-<div data-role="page" id="mapaSuc"></div>
-<div data-role="page" id="infoSuc"></div>
-<div data-role="page" id="contacto"></div>
+<div data-role="page" id="listRest"></div>
+<div data-role="page" id="listCats"></div>
+<div data-role="page" id="listMenu"></div>
+<div data-role="page" id="platillo"></div>
 
-<div data-role="page" id="contactoListo">
-	  <div data-role="header" data-position="fixed">
-    <h1>Enviado</h1>
-    </div>
+<div data-role="page" id="cart">
+     
 
-    <div  role="main" class="ui-content">
-    	Se ha enviado un correo con tus comentarios. Te contestaremos a la brevedad.
-    	<a href="#mainScreen" class="ui-btn">Regresar a principal</a>
-    </div>
 </div>
+
+<div data-role="page" id="resume">
+
+</div>
+<div data-role="page" id="finalizado"></div>
+<div data-role="page" id="login"></div>
+
 
 
 <div id="templateLoader" style="display:none"></div>
+<div class="ui-loader-background"> </div>
+
+
+
+<div id="dialog1" data-role="dialog" class="ui-dialog-contain ui-corner-all ui-overlay-shadow">
+	
+		<div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-d" role="banner">
+			<h1 class="ui-title" role="heading" aria-level="1">Notificación</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c" class="ui-corner-bottom ui-content ui-body-c" role="main">
+			<h3 id="diag_Title"></h3>
+			<p id="diag_text"></p>
+			<br>
+			<a href="docs-dialogs.html" data-role="button" data-rel="back" data-theme="c" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Aceptar</span></span></a>    
+		</div>
+</div>
+ 
 
 
   </body>

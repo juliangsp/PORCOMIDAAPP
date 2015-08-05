@@ -61,6 +61,12 @@
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information" />
+
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="2.3">
+        <param name="APP_ID" value="301914963325646" />
+        <param name="APP_NAME" value="porcomida" />
+    </gap:plugin>
+
     <icon src="icon.png"/>
     <access origin="*" />
     <preference name="EnableViewportScale" value="false" />
