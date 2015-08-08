@@ -6,13 +6,8 @@ var ctrl_home = {
 	pageDiv : "#mainScreen",
 	map  : {},
 	init : function(data,template){
-
-
 		ctrl_home.data = data;
 		ctrl_home.render();
-		ctrl_home.map = L.map('map');
-
-
 	},
 	render : function(){
 
@@ -55,9 +50,10 @@ var ctrl_home = {
 	},
 	getLocation: function(){
 		jqm.showLoader("localizando...");
-		ctrl_home.map.locate({setView: true, maxZoom: 16});
-		ctrl_home.map.on('locationfound', ctrl_home.onLocationFound);
-    	ctrl_home.map.on('locationerror', ctrl_home.onLocationError);
+		//ctrl_home.map.locate({setView: true, maxZoom: 16});
+		navigator.geolocation.getCurrentPosition(ctrl_home.onLocationFound, ctrl_home.onLocationError,{maximumAge:3000,timeout:5000,enableHighAccuracy:true});
+    //ctrl_home.map.on('locationfound', ctrl_home.onLocationFound);
+    //ctrl_home.map.on('locationerror', ctrl_home.onLocationError);
 	},
 	onLocationFound : function(position){
 		jqm.hideLoader();
@@ -66,8 +62,9 @@ var ctrl_home = {
 		userLng = pos.lng;
 		gGeo.initLatLng(userLat,userLng)
 	},
-	onLocationError : function(){
-		console.log("drag location not found");
+	onLocationError : function(error){
+		alert('code: ' + error.code + '\n' +
+'message: ' + error.message + '\n');
 	}
 }
 
