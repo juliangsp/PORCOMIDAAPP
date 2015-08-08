@@ -63,6 +63,11 @@
      <param name="ios-package" value="CDVLocation" />
     </feature>
 
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" >
+    <param name="APP_ID" value="301914963325646" />
+    <param name="APP_NAME" value="porcomida" />
+</gap:plugin>
+
     <gap:plugin name="org.apache.cordova.core.geolocation" version="0.3.10" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
