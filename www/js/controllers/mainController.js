@@ -242,15 +242,6 @@ var mMapa = {
 	map  : {},
 	userLocation : {},
 	marker : [],
-	userIcon : L.icon({
-            iconUrl		: './img/marcador_usuario.png',
-            shadowUrl	: './img/sombra_marcadores.png',
-            iconSize	: [53, 42], // size of the icon
-            shadowSize	: [51, 43], // size of the shadow
-            iconAnchor	: [16, 43], // point of the icon which will correspond to marker's location
-            shadowAnchor: [8, 42],  // the same for the shadow
-            popupAnchor	: [0, -42] // point from which the popup should open relative to the iconAnchor
-    }),	
 	init : function(){
 		mMapa.getMapCookies();
 		mMapa.setMap();
