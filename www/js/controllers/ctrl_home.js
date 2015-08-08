@@ -51,7 +51,7 @@ var ctrl_home = {
 	getLocation: function(){
 		jqm.showLoader("localizando...");
 		//ctrl_home.map.locate({setView: true, maxZoom: 16});
-		navigator.geolocation.getCurrentPosition(ctrl_home.onLocationFound, ctrl_home.onLocationError,{maximumAge:3000,timeout:35000,enableHighAccuracy:true});
+		navigator.geolocation.getCurrentPosition(ctrl_home.onLocationFound, ctrl_home.onLocationError,{maximumAge:3000,timeout:35000,enableHighAccuracy:false});
     //ctrl_home.map.on('locationfound', ctrl_home.onLocationFound);
     //ctrl_home.map.on('locationerror', ctrl_home.onLocationError);
 	},
@@ -63,6 +63,7 @@ var ctrl_home = {
 		gGeo.initLatLng(userLat,userLng)
 	},
 	onLocationError : function(error){
+    jqm.hideLoader();
 		alert('code: ' + error.code + '\n' +
 'message: ' + error.message + '\n');
 	}
