@@ -271,6 +271,7 @@ function clearCart(){
   console.log("regreso final mostrar pantalla final")
   restModel.platillo = [];
   $.mobile.changePage( "#finalizado");
+  
   //renderCart();
 }
 
