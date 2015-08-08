@@ -57,9 +57,10 @@ var ctrl_home = {
 	},
 	onLocationFound : function(position){
 		jqm.hideLoader();
-		var pos = position.latlng;
-		userLat = pos.lat;
-		userLng = pos.lng;
+    console.log(position)
+		var pos = position.coords;
+		userLat = pos.latitude;
+		userLng = pos.longitude;
 		gGeo.initLatLng(userLat,userLng)
 	},
 	onLocationError : function(error){
