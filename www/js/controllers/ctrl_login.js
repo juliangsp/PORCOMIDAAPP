@@ -195,7 +195,7 @@ var faceLogin = {
 			}, {scope: 'publish_actions'}); */ 
 
 
-		facebookConnectPlugin.login(['publish_actions'], function(){
+		facebookConnectPlugin.login(['email'], function(){
 			faceLogin.meFacebook();
 		}, function(err){
 			alert(JSON.stringify(err))
