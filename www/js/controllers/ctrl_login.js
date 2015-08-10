@@ -149,7 +149,7 @@ var faceLogin = {
 					  }
 			}
 			, function(err){
-				alert("error" + " facelogin")
+				alert("error")
 
 			})
 
@@ -197,12 +197,12 @@ var faceLogin = {
 		facebookConnectPlugin.login(['email'], function(){
 			faceLogin.meFacebook();
 		}, function(err){
-			alert(JSON.stringify(err) + " login error")
+			alert(JSON.stringify(err))
 		})
 
 	},
 	meFacebook :function(){
-		facebookConnectPlugin.api('/me' , { fields: 'id, name' } , function(data) {			          	
+		facebookConnectPlugin.api('/me?fields=name', ["public_profile"], function(data) {			          	
        	faceLogin.getProfileImage();
         logued = true;
         console.log(JSON.stringify(data))
@@ -214,16 +214,15 @@ var faceLogin = {
 	    };
         ctrl_login.loginUser(dataLoginIns);
       },function(err){ 
-      	alert(JSON.stringify(err) + " Error me ") });
+      	alert(JSON.stringify(err) + "error me ") });
 	},
 	getProfileImage :function() {
 	 	var $photo = $('#logInfo');
 	 	$photo.empty();
-		    facebookConnectPlugin.api("/me" , { fields: 'picture', width:100, height:100 },  ["basic_info"], function(response) {
+		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  ["public_profile"], function(response) {
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
-		},function(err){ 
-			alert(JSON.stringify(err) + " Error Image") } );  
+		},function(err){ alert(JSON.stringify(err)) } );  
 	},	
 }
