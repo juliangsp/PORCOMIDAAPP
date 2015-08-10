@@ -203,9 +203,12 @@ var faceLogin = {
 	},
 	meFacebook :function(){
 		facebookConnectPlugin.api('/me?fields=name', ["public_profile"], function(data) {			          	
-       	faceLogin.getProfileImage();
+       	//faceLogin.getProfileImage();
+       	var $photo = $('#logInfo');
+       	$photo.empty();
         logued = true;
         console.log(JSON.stringify(data))
+        $photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://graph.facebook.com/"' +data.id+ '"/picture?width=100&height=100" \">');
         var dataLoginIns = {
         'USERNAME'	: data.id,
         'TYPE'		: 'facebook',
