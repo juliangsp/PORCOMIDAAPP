@@ -203,7 +203,7 @@ var faceLogin = {
 
 	},
 	meFacebook :function(){
-		facebookConnectPlugin.api('/me?fields=name,email', function(data) {			          	
+		facebookConnectPlugin.api('/me?fields=name', ["basic_info"], function(data) {			          	
        	faceLogin.getProfileImage();
         logued = true;
 
@@ -214,12 +214,12 @@ var faceLogin = {
         'loc'		: loc
 	    };
         ctrl_login.loginUser(dataLoginIns);
-      });
+      },function(err){ alert(JSON.stringify(err)) });
 	},
 	getProfileImage :function() {
 	 	var $photo = $('#logInfo');
 	 	$photo.empty();
-		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  function(response) {
+		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  ["basic_info"], function(response) {
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
