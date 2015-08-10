@@ -207,7 +207,7 @@ var faceLogin = {
        	var $photo = $('#logInfo');
        	$photo.empty();
         logued = true;
-        console.log(JSON.stringify(data))
+        console.log("https://graph.facebook.com/" +response.user_id+ "/picture?width=100&height=100")
         $photo.append('<img id="fotito" class="fb-photo img-polaroid" src="https://graph.facebook.com/' +response.user_id+ '/picture?width=100&height=100">');
         var dataLoginIns = {
         'USERNAME'	: data.id,
