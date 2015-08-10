@@ -138,7 +138,6 @@ var faceLogin = {
 		  
 
 		facebookConnectPlugin.getLoginStatus(function(response){
-			alert(JSON.stringify(response));
 				if (response.status === 'connected') {
 					   		faceLogin.meFacebook();
 					  } else if (response.status === 'not_authorized') {
@@ -225,5 +224,4 @@ var faceLogin = {
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
 		});  
 	},	
-
 }
