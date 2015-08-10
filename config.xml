@@ -24,35 +24,30 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarStyle" value="default" />
     <preference name="target-device" value="handset" />
-   <platform name="android">
-    <!-- you can use any density that exists in the Android project -->
-    <splash src="www/img/splash/splash.png" density="land-hdpi"/>
-    <splash src="www/img/splash/splash.png" density="land-ldpi"/>
-    <splash src="www/img/splash/splash.png" density="land-mdpi"/>
-    <splash src="www/img/splash/splash.png" density="land-xhdpi"/>
-    <splash src="www/img/splash/splash.png" density="port-hdpi"/>
-    <splash src="www/img/splash/splash.png" density="port-ldpi"/>
-    <splash src="www/img/splash/splash.png" density="port-mdpi"/>
-    <splash src="www/img/splash/splash.png" density="port-xhdpi"/>
-</platform>
-
-<platform name="ios">
-    <!-- images are determined by width and height. The following are supported -->
-    <splash src="www/img/splash/splash.png" width="320" height="480"/>
-    <splash src="www/img/splash/splash.png" width="640" height="960"/>
-    <splash src="www/img/splash/splash.png" width="768" height="1024"/>
-    <splash src="www/img/splash/splash.png" width="1536" height="2048"/>
-    <splash src="www/img/splash/splash.png" width="1024" height="768"/>
-    <splash src="www/img/splash/splash.png" width="2048" height="1536"/>
-    <splash src="www/img/splash/splash.png" width="640" height="1136"/>
-    <splash src="www/img/splash/splash.png" width="750" height="1334"/>
-    <splash src="www/img/splash/splash.png" width="1242" height="2208"/>
-    <splash src="www/img/splash/splash.png" width="2208" height="1242"/>
-</platform>
-
-<preference name="SplashScreen" value="screen" />
-<preference name="SplashScreenDelay" value="10000" />
-
+    <platform name="android">
+        <splash density="land-hdpi" src="www/img/splash/splash.png" />
+        <splash density="land-ldpi" src="www/img/splash/splash.png" />
+        <splash density="land-mdpi" src="www/img/splash/splash.png" />
+        <splash density="land-xhdpi" src="www/img/splash/splash.png" />
+        <splash density="port-hdpi" src="www/img/splash/splash.png" />
+        <splash density="port-ldpi" src="www/img/splash/splash.png" />
+        <splash density="port-mdpi" src="www/img/splash/splash.png" />
+        <splash density="port-xhdpi" src="www/img/splash/splash.png" />
+    </platform>
+    <platform name="ios">
+        <splash height="480" src="www/img/splash/splash.png" width="320" />
+        <splash height="960" src="www/img/splash/splash.png" width="640" />
+        <splash height="1024" src="www/img/splash/splash.png" width="768" />
+        <splash height="2048" src="www/img/splash/splash.png" width="1536" />
+        <splash height="768" src="www/img/splash/splash.png" width="1024" />
+        <splash height="1536" src="www/img/splash/splash.png" width="2048" />
+        <splash height="1136" src="www/img/splash/splash.png" width="640" />
+        <splash height="1334" src="www/img/splash/splash.png" width="750" />
+        <splash height="2208" src="www/img/splash/splash.png" width="1242" />
+        <splash height="1242" src="www/img/splash/splash.png" width="2208" />
+    </platform>
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="10000" />
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.InAppBrowser" />
     </feature>
@@ -60,28 +55,23 @@
         <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
     </feature>
     <feature name="Geolocation">
-     <param name="ios-package" value="CDVLocation" />
+        <param name="ios-package" value="CDVLocation" />
     </feature>
-
-    <gap:plugin name="com.phonegap.plugins.facebookconnect" >
-    <param name="APP_ID" value="301914963325646" />
-    <param name="APP_NAME" value="Porcomida" />
-</gap:plugin>
-
+    <gap:plugin name="com.phonegap.plugins.facebookconnect">
+        <param name="APP_ID" value="301914963325646" />
+        <param name="APP_NAME" value="Porcomida" />
+    </gap:plugin>
     <gap:plugin name="org.apache.cordova.core.geolocation" version="0.3.10" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
     <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-
-
-    <feature name="http://api.phonegap.com/1.0/device"/>
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
-    <feature name="http://api.phonegap.com/1.0/notification"/>
-  
-
-    <icon src="icon.png"/>
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/geolocation" />
+    <feature name="http://api.phonegap.com/1.0/notification" />
+    <icon src="icon.png" />
     <access origin="*" />
     <preference name="EnableViewportScale" value="false" />
+    <engine name="android" spec="^4.0.2" />
 </widget>

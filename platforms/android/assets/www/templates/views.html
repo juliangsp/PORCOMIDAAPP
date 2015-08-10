@@ -1,0 +1,677 @@
+
+
+
+ <div id="buscandoMsg" style="display:none;"> 
+   <label><i class="fa fa-spinner fa-spin"></i> buscando...</label>
+</div>    
+
+
+
+<!--  HOME ============================================================-->
+	<script id='mainT' type='text/ractive'>
+    
+    <div id="map" style="display:none;"></div>
+	{{>menuT}}
+
+	 <div data-role="header" id="headerLogo" data-position="fixed">
+        <div id="mainHeader">
+              <div id="logoHeader">
+                <img src="img/logo_azul.png">
+            </div>
+	</div>
+
+     <!--   <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+ <a href="#add-form" data-icon="gear" class="ui-btn-right" data-iconpos="notext">Info</a>
+       -->
+       
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+    <label class="mainText small-12 small-centered column end"> Elige tu ubicación para determinar las mejores opciones disponibles en tu area</label>
+
+
+    	  <div on-tap="autoLocate" class="small-12 column locDiv">
+            <div   class="locControls">
+                <div class="locIco"><i class="fa fa-location-arrow"></i></div>
+                <div class="locText"> localízame</div>
+            </div>
+         </div>
+
+           <div class="small-12 column"><input  id="pac-input" type="text" placeholder="Dirección, Código Postal ó Ciudad"></div>
+           <div class="small-12 column"><button on-tap="buscar" class="mainBt">Buscar Restaurantes</button></div>
+    </div><!-- /content -->
+    
+		 
+      
+      
+
+    </script>
+
+
+<!-- FIRST ============================================================-->
+<script id='firstT' type='text/ractive'>
+    
+
+	 <div data-role="header" id="headerLogo" data-position="fixed">
+        <div id="logoHeader">
+		<img src="img/logo.png">
+		</div>
+    </div>
+
+    <div role="main" class="ui-content">
+           <button on-tap="login">Ingresar a mi cuenta</button>
+           <button  on-tap="registro">Registrarme</button>
+    </div><!-- /content -->
+    
+
+</script>
+
+<!--  LOGIN ============================================================-->
+<script id='loginT' type='text/ractive'>
+    
+    <div data-role="header" data-position="fixed">
+    <h1>Ingresar</h1>
+    </div>
+
+    <div  role="main" class="ui-content">
+
+	<h2>Ingresar a mi cuenta</h2>
+            <label for="name">Correo:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <label for="password">Contraseña: <a href="#recuperar">¿Olvidaste tu contraseña?</a></label> <a href="#recuperar"></a>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" on-tap="cancelar">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini" on-tap="ingresar">Ingresar</a></div>
+            </div>
+    </div>
+    
+
+</script>
+
+
+<!-- Cart  ============================================================-->
+<script id='cartT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Carrito</h1>
+    </div>
+
+
+
+    <div id="wrapperList">
+
+        <div id="scroller" data-iscroll>
+           
+        <div id="cartWrapper">
+           <div id="cartDiv">
+              <div id="cartHeader">Tu pedido</div>
+              <div id="cartItems"></div>
+              <div id="cartTotals"></div>
+              <div id="cartTipo"></div>
+              <div id="cartSend">
+                 <div class="centerDiv">
+                    <img class="ordernarImg" src="../img/ordenar.png">
+                    <div class="ordenarText">Continuar</div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+
+        </div>
+    </div>    
+
+   
+
+</script>
+
+
+<script id="h_cartItem" type="text/ractive">
+  <div class="cartItemDiv" >
+    <div class="contItemCart"> 
+
+      <div class="cartBloque1">    
+      
+        <div class="cartCantidad" id="{{NAME}}">{{data.cantidad}} </div>
+          <div class="cartModificar" id="{{data._id}}">
+            <div id="men_{{data.idPlatillo}}" data-menuitem="{{data.idMenuItem}}"  class="sustraer">-</div>
+            <div id="mas_{{data.idPlatillo}}" data-menuitem="{{data.idMenuItem}}"  class="agregar">+</div>
+        </div>
+
+        <div data-menuitem="{{data.idMenuItem}}" id="{{data.idPlatillo}}" class="platItem">
+           <div class="cartNombre" id="{{data.NAME}}">{{data.nombrePlat}} </div>
+           <div class="cartExtras" id="{{data.NAME}}">{{{extrasH(data.extras)}}}</div>
+        </div>
+      </div>
+
+      <div class="cartBloque2">
+        <div class="cartPrecio" id="{{data.NAME}}">{{pesos(data.precioTotal)}} </div>
+      </div>
+
+    </div>
+  </div>
+</script>
+
+<script id="h_cartTotals" type="text/ractive">
+  <div class="cartTotalsDiv" data-menuitem="{{data.idMenuItem}}" id="{{data.idPlatillo}}">
+    <div class=""> 
+
+      <div class="cartBTotals1">    
+        <div class="textoTot">Subtotal</div>
+        <div class="textoTot">Descuentos</div>
+        <div class="textoTot">Envío</div>
+        <div class="textoTot2">Total</div>
+      </div>
+
+      <div class="cartBTotals2">
+        <div class="textoTotRes1" id="{{NAME}}">{{pesos(data.subtotal)}} </div>
+        <div class="textoTotRes3" id="{{NAME}}">{{pesos(data.totalDescuentos)}} </div>
+        <div class="textoTotRes1" id="{{NAME}}">{{pesos(data.envio)}} </div>
+        <div class="textoTotRes2" id="{{NAME}}">{{pesos(data.total)}} </div>
+      </div>
+
+    </div>
+  </div>
+</script> 
+
+
+
+<script id="h_cartTipo" type="text/ractive">
+   <div id="ENTREGA">
+
+            <label class="platCheck"><input   id="pb1" type="radio" name="ENTREGA_OPT" value="1" {{checked(data.tipoEnvio,1)}} ><i class="fa fa-car"></i> RECOGER EN RESTAURANTE</label>
+            <label  class="platCheck"><input  id="pb2" type="radio" name="ENTREGA_OPT" value="2"  {{checked(data.tipoEnvio,2)}} ><i class="fa fa-home"></i> A DOMICILIO</label>
+
+          </div> 
+</script> 
+
+<!-- Resume  ============================================================-->
+<script id='resumeT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Resumen</h1>
+    </div>
+
+    <div id="wrapperList">
+        <div id="scroller" data-iscroll>
+
+
+      
+            
+    <div id="check_Pedido" class="infoModule">        
+   <div id="alerts"></div>  
+
+    <div id="resumeFinal">Total: {{pesos(order.total)}}</div>
+
+    <div class="rowInfo">
+        <div class="formLabelFull">Instrucciones Especiales de Envío:</div>
+        <textarea class="areaControl" id="ORDER_INSTRUCCIONES" type="text" value="{{order.instrucciones}}">{{order.instrucciones}}</textarea>
+     </div>
+    
+  </div>
+
+  <div id="check_Descuentos" class="infoModule" style="display:none;">
+    
+     <div class="subTitle">Descuentos</div>
+
+    <div class="rowUser">
+        <div class="formLabel">Usa tus puntos Facebook</div>
+         
+        <div id="infoFB">
+            <div id="instFB"> Al compartir tus compras en Facebook generas 1 punto por cada peso del Subtotal de tu pedido, que podrás utilizar en tus compras como dinero en efectivo. <br> Arrastra la Barra para usar tus puntos sobre tu total.</div>
+             <div id="scrollFaceDiv">
+              <input id="rangeFB" type="range" name="ratioD" min="0" max="{{user.PUNTOSFACEBOOK}}" step="1" value="">
+            </div>
+            <div class="datoFB">Puntos disponibles <div id="valDisponibles">{{user.PUNTOSFACEBOOK}}</div></div>
+            <div class="datoFB">Puntos usados <div id="valUsados">{{checkPuntos(order.puntosUsados)}}</div></div>
+            <div class="datoFB">Descuento Puntos FB <div id="valDescuento">{{pesos(order.descuentoPuntos)}}</div></div>
+        </div>
+     </div>
+
+
+      <div class="rowUser">
+        <input class="inputControl" id="PAGOS_CUPON" type="text" value="" />
+        <div id="validarCupon">Validar cupón</div>
+        <div id="msgCupon"></div>
+     </div>
+</div>
+
+
+  <div id="check_Contacto" class="infoModule">  
+  <div class="subTitle">Contacto</div>
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Nombre Completo: </div>
+        <input class="inputControl" id="USUARIO_NAME" type="text" value="{{user.NAME}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Correo Electrónico: </div>
+        <input class="inputControl" id="USUARIO_EMAIL" type="text" value="{{user.EMAIL}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Telefono Móvil: </div>
+        <input class="inputControl" id="USUARIO_MOVIL" type="text" value="{{user.MOVIL}}" />
+     </div>
+  </div>
+
+  <div id="check_Entrega" class="infoModule">
+  <div class="subTitle">Entrega</div>
+    <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Dirección: </div>
+        <input class="inputControl" id="ORDER_DIRECCION" type="text" value="{{direccionSel(user.DIRECCIONES,'direccion')}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Número / Numero Interior: </div>
+        <input class="inputControl" id="ORDER_NUMEROINTERIOR" type="text" value="{{direccionSel(user.DIRECCIONES,'numero')}} " />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel">Entre Calles: </div>
+        <input class="inputControl" id="ORDER_CALLES" type="text" value="{{direccionSel(user.DIRECCIONES,'calles')}}" />
+     </div>
+
+      <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Colonia: </div>
+        <input class="inputControl" id="ORDER_COLONIA" type="text" value="{{direccionSel(user.DIRECCIONES,'colonia')}}" />
+     </div>
+
+      <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Codigo Postal: </div>
+        <input class="inputControl" id="ORDER_CP" type="text" value="{{direccionSel(user.DIRECCIONES,'cp')}}" />
+     </div>
+
+      <div id="factura" class="rowUser">
+        <input id="fact1" type="checkbox" name="factura" value="1" {{#checked(order.factura,2)}}  {{/checked}}>
+        <label for="fact1"  class="">Requiero Factura</label>
+      </div>  
+
+  </div>
+
+<!-- FACTURA /////////////////////////////////////////////////////////-->
+
+<div id="check_Factura" class="infoModule">
+  <div class="subTitle">Facturación</div>
+    <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Nombre: </div>
+        <input class="inputControl" id="FACTURA_NOMBRE" type="text" value="{{order.datosEnvio.direccion}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>RFC: </div>
+        <input class="inputControl" id="FACTURA_RFC" type="text" value="{{order.datosEnvio.numeroInterior}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Dirección</div>
+        <input class="inputControl" id="FACTURA_DIRECCION" type="text" value="{{order.datosEnvio.calles}}" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Número / Número Interior</div>
+        <input class="inputControl" id="FACTURA_NUMERO" type="text" value="{{order.datosEnvio.calles}}" />
+     </div>
+
+      <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Código Postal: </div>
+        <input class="inputControl" id="FACTURA_CP" type="text" value="{{order.datosEnvio.colonia}}" />
+     </div>
+
+  </div>
+
+<!-- PAGO /////////////////////////////////////////////////////////-->
+
+  <div id="check_Pago" class="infoModule">
+
+      <div class="subTitle">Tipo de Pago</div>
+    
+        <div id="TIPOOP" class="rowUser">
+         
+          <label for="lb1" > <input id="lb1" type="radio" name="TIPOOP" id="TIPOOP" value="1" {{checked(order.tipoEnvio,1)}}>Tarjeta de Crédito (Débito y credito) </label>
+       
+          
+          <label for="lb2" ><input id="lb2" type="radio" name="TIPOOP" id="TIPOOP" value="2" {{checked(order.tipoEnvio,2) }}>Efectivo</label>
+        </div>  
+
+ </div>
+
+ <div id="pagoTarjeta">
+  
+    <div class="rowUserTop">
+        <div class="formLabel"><div class="aster">*</div>Nombre en la Tarjeta: </div>
+        <input class="inputControl" id="PAGOS_NOMBRETARJETA" type="text" value="" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Número de la Tarjeta: </div>
+        <input class="inputControl" id="PAGOS_NUMEROTARJETA" type="text" value="" />
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Fecha Expiración: </div>
+        <select id="mesTarjeta" name="mesTarjeta" class="">
+          <option value="">Mes</option>
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+          <option value="4">5</option>
+          <option value="5">6</option>
+          <option value="6">7</option>
+          <option value="7">8</option>
+          <option value="8">9</option>
+          <option value="9">10</option>
+          <option value="10">11</option>
+          <option value="11">12</option>
+        </select>
+
+        <select id="anoTarjeta" name="anoMes" class="">
+          <option value="">Año</option>
+          <option value="0">2015</option>
+          <option value="1">2016</option>
+          <option value="2">2017</option>
+          <option value="3">2018</option>
+          <option value="4">2019</option>
+          <option value="5">2020</option>
+          <option value="6">2021</option>
+          <option value="7">2022</option>
+          <option value="8">2023</option>
+          <option value="9">2024</option>
+          <option value="10">2025</option>
+          <option value="11">2026</option>
+          <option value="12">2027</option>
+          <option value="13">2028</option>
+          <option value="14">2029</option>
+          <option value="15">2030</option>
+          <option value="16">2031</option>
+          <option value="17">2032</option>
+          <option value="18">2033</option>
+          <option value="19">2034</option>
+          <option value="20">2035</option>
+        </select>
+
+     </div>
+
+     <div class="rowUser">
+        <div class="formLabel"><div class="aster">*</div>Código de Seguridad: </div>
+        <input class="inputControl" id="PAGOS_CVV" type="text" value="{{order.datosEnvio.ccv}}" />
+     </div>
+
+ </div> 
+
+
+ <div id="pagoEfectivo">
+     <div class="rowUserTop">
+        <div class="formLabel">Envíar cambio de : </div>
+        <input class="inputControl" id="PAGOS_CAMBIO" type="text" value="" />
+     </div>
+ </div>  
+
+  <div style="margin-top:40px;">
+  <div class="subTitle"><div class="aster">*</div> Campos requeridos.</div>
+  </div>
+
+      <div id="cartEnd">
+              <div class="centerDiv">
+              <img class="ordernarImg" src="../img/ordenar.png">
+              <div class="ordenarText">Enviar Pedido</div>
+              </div>
+            </div> 
+
+        </div>
+    </div>
+
+
+</script>
+
+
+<!-- Finzalizado ============================================================-->
+<script id='finalizadoT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+    <a href="#mainScreen" data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Orden Enviada</h1>
+    </div>
+
+    <div id="wrapperList">
+        <div id="scroller" data-iscroll>
+          <center>
+            <h3>Tu orden ha sido enviada satisfactoriamente</h3>
+            <button on-tap="goMain">Regresar a búsqueda</button>
+          </center>
+        </div>
+    </div>
+
+
+</script>
+
+<!-- Listado 1  ============================================================-->
+<script id='listRestT' type='text/ractive'>
+
+	<div data-role="header" data-position="fixed">
+     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Restaurantes</h1>
+    </div>
+
+	<div id="wrapperList">
+	    <div id="scroller" data-iscroll>
+	        <ul data-role="listview" id="listview">
+	            {{#each items}}
+	            <li>
+	                <a on-tap="listDetail" data-transition="fade">
+
+	                        <h3>{{BUSSINESS.NAME}}</h3>
+	                        <p>{{BUSSINESS.CATEGORY}}<p>
+	                    
+	                       <p class="ui-li-aside"><b>{{distance(dist)}} km.</b></p>
+	                    
+	                </a>
+	            </li>
+	            {{/each}}
+	        </ul>
+	    </div>
+    </div>
+
+
+</script>
+
+
+<!-- Listado Menú  ============================================================-->
+<script id='listCatsT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+    <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Categorías</h1>
+    </div>
+
+    <div id="wrapperList">
+        <div id="scroller" data-iscroll>
+            <ul data-role="listview" id="listview">
+                {{#each CATEGORIES}}
+                <li>
+                    <a on-tap="catDetail" data-transition="fade">
+                       
+                            <h3>{{NAME}}</h3>    
+                        
+                        
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+
+</script>
+
+
+<!-- Listado Menú  ============================================================-->
+<script id='listMenuT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+    <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Menú</h1>
+    </div>
+
+    <div id="wrapperList">
+        <div id="scroller" data-iscroll>
+            <ul data-role="listview" id="listview">
+                {{#each items}}
+                <li>
+                    <a on-tap="platilloDetail" data-transition="fade">
+                        <div class="small-9 column">
+                            {{#if already}}
+                              <div class="alreadyDiv">
+                              <i class="paloma fa fa-check"></i> {{cantidadOrden}}
+                              </div>
+                            {{/if}}
+                            <div class=""><h3>{{NAME}}</h3></div>
+                            
+                            <div class="wrap tags"><p>{{DESCRIPTION}}<p></div>
+                        </div>
+                        <div class="small-3 column">
+                            <div class="distancia">{{pesos(PRICE)}}</div>
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+
+
+</script>
+
+<!-- Detail Platillo  ============================================================-->
+<script id='platilloT' type='text/ractive'>
+
+    <div data-role="header" data-position="fixed">
+    <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
+    <h1>Platillo</h1>
+    </div>
+
+    <div id="wrapperList">
+        <div id="scroller" data-iscroll>
+
+      <div class="descDiv row">
+      <div class="imagenPlat small-6 column">{{{platilloImagen(IMAGEN) }}}</div>
+      <div class="textoPlat small-6 column"><label class="numPlat">{{vObj.cantidad}}</label> {{NAME}} </div>
+      <div id="PLATILLO_PRICE" class="precioPlat small-6 column">{{pesos(vObj.precioTotal) }} </div>
+      <div class="descPlat small-12 column">{{ DESCRIPTION }} </div>
+      </div>
+
+      <div class="cartModificar small-12 column" id="{{data._id}}">
+            <div class="cantsPlatillo">
+            <div id="" on-tap="sustraer" class="sustraer">-</div>
+            <div id="" on-tap="agregar" class="agregar">+</div>
+            </div>
+        </div>
+
+        <div>
+            <ul data-role="listview" id="listview">
+                {{#each EXTRAS:num}}
+                <li>
+                    {{{controls(EXTRAS[num],vObj)}}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <!--
+        <div class="small-12 column"><input type="number" id="PLATILLO_QTY" value="1"></div>
+        -->
+        <div class="small-12 column"><input type="text" id="PLATILLO_COMS" placeholder="Instrucciones especiales" >{{ PLATILLO_INST }}</div>
+        <div class="small-12 column"><button on-tap="savePlatillo">Agregar a la orden</button></div>
+
+
+</script>
+
+
+
+
+<!--  MAPA ============================================================-->
+	<script id='mapaT' type='text/ractive'>
+    
+	<div data-role="header" data-position="fixed">
+	    <a href="#infoSuc" data-direction="reverse" data-icon="back">&nbsp;</a>
+	    <h1>Ubicación Sucursal</h1>   
+	</div>
+
+	 <div role="main" class="ui-content">
+	<div style="display:none;"><input  id="pac-input" type="text" placeholder="Escribe tu dirección, Código Postal ó Ciudad" /></div>
+	<div id="ubica"></div>
+	</div>
+
+	
+
+</script>
+
+
+
+
+
+
+<!--
+ 	   <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                <li><a href="#panel-fixed-page2">Accordion</a></li>
+                <li><a href="#panel-fixed-page2">AJAX Navigation</a></li>
+                <li><a href="#panel-fixed-page2">Autocomplete</a></li>
+                <li><a href="#panel-fixed-page2">Buttons</a></li>
+          
+        </ul>
+    </div>
+     -->
+
+
+<!--  MENU ============================================================-->
+<script id='menuT' type='text/html'>
+ 
+    <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+        <form class="userform">
+
+            <div id="logInfo"></div>
+            <h3 id="username"></h3>
+            <h3 id="fbPoints"></h3>
+
+
+        </form>
+    </div><!-- /panel -->
+
+</script>
+
+<script id='footerT' type='text/html'>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">      
+            <div data-role="navbar">
+                <ul>
+                
+                <li><a href="#cart" id="restIco"><i class="small-12 icoMenu column fa fa-shopping-cart"></i><div class="navText  column">Carrito<span id="" class="badge"></span></div></a></li> 
+                <li><a href="#add-form" id="restIco"><i class="small-12 icoMenu column fa fa-user"></i><div class="navText  column">Mi cuenta</div></a></li> 
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+
+
+ </script>  
+
+
+
+ <script id='footerMenu' type='text/html'>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">      
+            <div data-role="navbar">
+                <ul>
+                  <li><a href="#mainScreen" id="restIco"><i class="small-12 icoMenu column fa fa-user"></i><div class="navText  column">Buscar</div></a></li> 
+                <li><a href="#cart" id="restIco"><i class="small-12 icoMenu column fa fa-shopping-cart"></i><div class="navText  column">Carrito<span id="" class="badge"></span></div></a></li> 
+              
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+
+
+ </script>       

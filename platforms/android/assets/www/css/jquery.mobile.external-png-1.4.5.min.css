@@ -1,0 +1,189 @@
+.ui-icon-bolt:after {
+    background-repeat: no-repeat;
+    background-position: 8px 2px !important;
+}
+
+.ui-icon-gear:after {
+    background-repeat: no-repeat;
+    background-position: 4px 3px !important;
+}
+
+.icoChat{
+	width: 80px;
+	border-radius: 30px;
+	margin: 10px;
+}
+
+
+img { -ms-interpolation-mode: bicubic; image-rendering: -moz-crisp-edges; }
+
+
+/* ============================================================
+*	MAIN SCREEN
+* ============================================================*/
+
+#mainContainer{
+	background-color: #fff;
+
+}
+
+.mainBt{
+	background-color: #01AEEF !important;
+	color: white !important;
+}
+
+.locControls{
+	text-align: center;
+}
+
+.locIco{
+	float: left;
+}
+
+#mainHeader{
+	background-color: #fff;
+  	background: url('../img/fondo1.jpg') no-repeat center center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	height: 250px;
+}
+
+#logoHeader{
+		width: 250px;
+	height: 50px;
+	margin: 0 auto;
+	margin-bottom: 0px;
+
+		padding-top: 162px;
+}
+
+#searchBox{
+	padding: 20px;
+}
+
+.searchInput{
+
+}
+
+.mainText{
+	text-align: center;
+	margin-top: 19px !important;
+	margin-bottom: 20px !important;
+	font-size: 13px !important;
+}
+
+.searchBot{
+	color: #FFF !important;
+	background-color: #00AEEF !important;
+}
+
+
+.locIco{
+	position: absolute;
+}
+
+/* ============================================================
+*	BUSCADOR
+* ============================================================*/
+
+#buscar{
+	background-color: #5E8BB4;
+}
+
+#logoMain{
+	width: 250px;
+	margin: 80px auto 60px;
+	/* margin-left: auto; */
+}
+
+#searchBar{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+*	LOGIN
+* ============================================================*/
+
+#loginContainer{
+	background-color: #1985D0;
+}
+
+#logoLogin{
+	width: 100px;
+	margin: 0 auto;
+}
+
+
+.facebookButton {
+/* float: right; */
+text-decoration: none;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-moz-transition: all 0.2s,background 1s,background 1s;
+-webkit-transition: all 0.2s,background 1s,background 1s;
+transition: all 0.2s,background 1s,background 1s;
+background: #263E72 url('../img/fb.png') no-repeat bottom left;
+border-bottom: 1px solid #263E72;
+border-left: 1px solid #4462A4;
+border-right: 1px solid #4462A4;
+border-top: 1px solid #5374BC;
+box-shadow: inset rgba(255, 255, 255, 0) 0 1px 0 0,rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+color: #FFF;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer;	
+margin: 5px auto;
+padding: 7px 0px -1px 0px;
+padding-right: 11px;
+padding-left: 47px;
+text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+-webkit-font-smoothing: antialiased;
+max-width: 366px;
+line-height: 35px;
+}
+
+.guestButton {
+/* float: right; */
+text-decoration: none;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-moz-transition: all 0.2s,background 1s,background 1s;
+-webkit-transition: all 0.2s,background 1s,background 1s;
+transition: all 0.2s,background 1s,background 1s;
+background: #263E72 url('../img/guest.png') no-repeat bottom left;
+border-bottom: 1px solid #263E72;
+border-left: -3px solid #4462A4;
+border-right: 1px solid #4462A4;
+border-top: 1px solid #5374BC;
+box-shadow: inset rgba(255, 255, 255, 0) 0 1px 0 0,rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+color: #FFF;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer;
+	
+margin: 5px auto;
+/* padding: 7px 0px 9px 33px; */
+padding-right: 11px;
+padding-left: 47px;
+text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+-webkit-font-smoothing: antialiased;
+max-width: 366px;
+line-height: 35px;
+}
+
+#footerLogin{
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	color: rgb(115, 115, 115);
+}

@@ -344,14 +344,14 @@ line-height: 35px;
 	/* color: rgb(184, 64, 64); */
 	font-weight: bold;
 	padding: 2px;
-	cursor: pointer;
+	/* cursor: pointer; */
 	margin-top: 1px;
 }
 
 .sustraer{
 	z-index: 100;
     
-	width: 25px;  background-color: rgb(247, 247, 247);  text-align: center;  border-radius: 2px;  color: black;  float: left;  margin-right: 2px;  border: 1px solid rgb(218, 215, 215);
+	width: 45px;  background-color: rgb(247, 247, 247);  text-align: center;  border-radius: 2px;  color: black;  float: left;  margin-right: 2px;  border: 1px solid rgb(218, 215, 215);
 	font-size: 25px;
 }
 .sustraer:hover{
@@ -381,7 +381,7 @@ color: white;
 
 .agregar{
 	z-index: 100;
-	width: 25px;  background-color: rgb(247, 247, 247);  text-align: center;  border-radius: 2px;  color: black;  float: left;  margin-right: 2px;  border: 1px solid rgb(218, 215, 215);
+	width: 44px;  background-color: rgb(247, 247, 247);  text-align: center;  border-radius: 2px;  color: black;  float: left;  margin-right: 2px;  border: 1px solid rgb(218, 215, 215);
 	font-size: 25px;
 }
 .agregar:hover{
@@ -1218,7 +1218,7 @@ Checkout
 
 .cantsPlatillo{
 	
-width: 65px;
+width: 100px;
 	
 margin: 0 auto;
 }
