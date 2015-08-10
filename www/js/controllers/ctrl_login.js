@@ -138,6 +138,7 @@ var faceLogin = {
 		  
 
 		facebookConnectPlugin.getLoginStatus(function(response){
+			alert(response);
 				if (response.status === 'connected') {
 					   		faceLogin.meFacebook();
 					  } else if (response.status === 'not_authorized') {
@@ -192,7 +193,7 @@ var faceLogin = {
 			console.log('User cancelled login or did not fully authorize.');
 			}
 			}, {scope: 'publish_actions'}); */ 
-alert("entrando funcion")
+	alert("entrando funcion")
 
 		facebookConnectPlugin.login(['publish_actions'], function(){
 			faceLogin.meFacebook();
