@@ -192,6 +192,7 @@ var faceLogin = {
 			console.log('User cancelled login or did not fully authorize.');
 			}
 			}, {scope: 'publish_actions'}); */ 
+alert("entrando funcion")
 
 		facebookConnectPlugin.login(['publish_actions'], function(){
 			faceLogin.meFacebook();
