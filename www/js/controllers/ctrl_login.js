@@ -221,6 +221,7 @@ var faceLogin = {
 	 	$photo.empty();
 		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  ["public_profile"], function(response) {
 		    	alert(JSON.stringify(response))
+		    	alert(response.user_id)
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://graph.facebook.com/"' +response.user_id+ '"/picture?width=100&height=100" \">');
