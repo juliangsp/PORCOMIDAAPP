@@ -219,7 +219,7 @@ var faceLogin = {
 	getProfileImage :function() {
 	 	var $photo = $('#logInfo');
 	 	$photo.empty();
-		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  ["public_profile"], function(response) {
+		    facebookConnectPlugin.api("/me?fields=picture&width=100&height=100",  ["public_profile"], function(response) {
 		    	alert(JSON.stringify(response.data))
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
