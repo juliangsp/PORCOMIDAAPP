@@ -1,5 +1,6 @@
 
-var deploy = "DEV"
+var deploy = "PROD"
+
 
 
 if(window.StatusBar) {

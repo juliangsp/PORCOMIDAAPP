@@ -135,25 +135,7 @@ var ctrl_login = {
 
 var faceLogin = {
 	checkFacebook : function(){
-		  
-
-		facebookConnectPlugin.getLoginStatus(function(response){
-				if (response.status === 'connected') {
-					   		faceLogin.meFacebook();
-					  } else if (response.status === 'not_authorized') {
-					    	ctrl_login.genLogin();
-							ctrl_login.checkActiveUser();
-					  } else {
-				       		ctrl_login.genLogin();
-							ctrl_login.checkActiveUser();
-					  }
-			}
-			, function(err){
-				console.log("error")
-
-			})
-
-		/*  $.ajax({
+		  $.ajax({
 			    url: 'https://connect.facebook.net/es_LA/sdk.js',
 			    dataType: 'script',
 			    cache: true,
@@ -180,28 +162,19 @@ var faceLogin = {
 
 				      },true);
 			   		}
-			    });*/
-
-
+			    });
 	},
 	loginFacebook :function(){
-		/*FB.login(function(response) {
+		FB.login(function(response) {
 			if (response.authResponse) {
 				faceLogin.meFacebook();
 			} else {
 			console.log('User cancelled login or did not fully authorize.');
 			}
-			}, {scope: 'publish_actions'}); */ 
-
-		facebookConnectPlugin.login(['publish_actions'], function(){
-			faceLogin.meFacebook();
-		}, function(){
-			console.log('User cancelled login or did not fully authorize.');
-		})
-
+			}, {scope: 'publish_actions'});
 	},
 	meFacebook :function(){
-		facebookConnectPlugin.api('/me?fields=name,email', function(data) {			          	
+		FB.api('/me?fields=name,email', function(data) {			          	
        	faceLogin.getProfileImage();
         logued = true;
 
@@ -217,7 +190,7 @@ var faceLogin = {
 	getProfileImage :function() {
 	 	var $photo = $('#logInfo');
 	 	$photo.empty();
-		    facebookConnectPlugin.api("/me/picture?width=100&height=100",  function(response) {
+		    FB.api("/me/picture?width=100&height=100",  function(response) {
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
