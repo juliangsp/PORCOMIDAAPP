@@ -149,7 +149,7 @@ var faceLogin = {
 					  }
 			}
 			, function(err){
-				alert("error")
+				alert("error" + " facelogin")
 
 			})
 
@@ -197,7 +197,7 @@ var faceLogin = {
 		facebookConnectPlugin.login(['email'], function(){
 			faceLogin.meFacebook();
 		}, function(err){
-			alert(JSON.stringify(err))
+			alert(JSON.stringify(err) + " login error")
 		})
 
 	},
@@ -214,7 +214,7 @@ var faceLogin = {
 	    };
         ctrl_login.loginUser(dataLoginIns);
       },function(err){ 
-      	alert(JSON.stringify(err)) });
+      	alert(JSON.stringify(err) + " Error me ") });
 	},
 	getProfileImage :function() {
 	 	var $photo = $('#logInfo');
@@ -224,6 +224,6 @@ var faceLogin = {
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
 		},function(err){ 
-			alert(JSON.stringify(err)) } );  
+			alert(JSON.stringify(err) + " Error Image") } );  
 	},	
 }
