@@ -149,7 +149,7 @@ var faceLogin = {
 					  }
 			}
 			, function(err){
-				console.log("error")
+				alert("error")
 
 			})
 
