@@ -222,6 +222,6 @@ var faceLogin = {
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
-		},function(err){ alert(JSON.stringify(err)) );  
+		},function(err){ alert(JSON.stringify(err)) } );  
 	},	
 }
