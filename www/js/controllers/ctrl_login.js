@@ -220,10 +220,10 @@ var faceLogin = {
 	 	var $photo = $('#logInfo');
 	 	$photo.empty();
 		    facebookConnectPlugin.api("/me?fields=picture",  [], function(response) {
-	   		   alert(response,picture.data)
-	   		   // profileImage =  response.picture.data.url.split('https://')[1], //remove https to avoid any cert issues
-			   // randomNumber =  ""
-				//$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
+	   		   alert(response.picture.data)
+	   		    profileImage =  response.picture.data.url //response.picture.data.url.split('https://')[1], //remove https to avoid any cert issues
+			    randomNumber =  ""
+			$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '\">');
 		},function(err){ alert(JSON.stringify(err)) } );  
 	},	
 }
