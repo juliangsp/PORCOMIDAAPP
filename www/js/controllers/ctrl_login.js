@@ -208,7 +208,7 @@ var faceLogin = {
        	$photo.empty();
         logued = true;
         console.log(JSON.stringify(data))
-        $photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://graph.facebook.com/"' +data.id+ '"/picture?width=100&height=100" \">');
+        $photo.append('<img id="fotito" class="fb-photo img-polaroid" src="https://graph.facebook.com/' +response.user_id+ '/picture?width=100&height=100">');
         var dataLoginIns = {
         'USERNAME'	: data.id,
         'TYPE'		: 'facebook',
@@ -227,7 +227,7 @@ var faceLogin = {
 		    	alert(response.user_id)
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
-				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://graph.facebook.com/"' +response.user_id+ '"/picture?width=100&height=100" \">');
+				$photo.append('<img id="fotito" class="fb-photo img-polaroid" src="https://graph.facebook.com/"' +response.user_id+ '"/picture?width=100&height=100" \">');
 		},function(err){ alert(JSON.stringify(err)) } );  
 	},	
 }
