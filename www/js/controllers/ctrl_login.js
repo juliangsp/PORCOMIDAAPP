@@ -205,7 +205,7 @@ var faceLogin = {
 		facebookConnectPlugin.api('/me?fields=name', ["basic_info"], function(data) {			          	
        	faceLogin.getProfileImage();
         logued = true;
-
+        console.log(JSON.stringify(data))
         var dataLoginIns = {
         'USERNAME'	: data.id,
         'TYPE'		: 'facebook',
@@ -222,6 +222,6 @@ var faceLogin = {
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
 				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://' + profileImage + '&' + randomNumber + '\">');
-		});  
+		},function(err){ alert(JSON.stringify(err)) );  
 	},	
 }
