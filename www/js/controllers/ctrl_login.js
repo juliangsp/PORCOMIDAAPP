@@ -202,13 +202,10 @@ var faceLogin = {
 
 	},
 	meFacebook :function(){
-		facebookConnectPlugin.api('/me?fields=name,id', ["public_profile"], function(data) {
+		facebookConnectPlugin.api('/me?fields=name', ["public_profile"], function(data) {			          	
        	//faceLogin.getProfileImage();
-       	var $photo = $('#logInfo');
-       	$photo.empty();
         logued = true;
-        console.log("https://graph.facebook.com/" + response.id + "/picture?width=100&height=100")
-      //  $photo.append('<img id="fotito" class="fb-photo img-polaroid" src="https://graph.facebook.com/' +response.user_id+ '/picture?width=100&height=100">');
+        console.log(JSON.stringify(data))
         var dataLoginIns = {
         'USERNAME'	: data.id,
         'TYPE'		: 'facebook',
@@ -227,7 +224,7 @@ var faceLogin = {
 		    	alert(response.user_id)
 	   		    profileImage =  response.data.url.split('https://')[1], //remove https to avoid any cert issues
 			    randomNumber =  ""
-				$photo.append('<img id="fotito" class="fb-photo img-polaroid" src="https://graph.facebook.com/"' +response.user_id+ '"/picture?width=100&height=100" \">');
+				$photo.append('<img id="fotito" class=\"fb-photo img-polaroid\" src=\"https://graph.facebook.com/"' +response.user_id+ '"/picture?width=100&height=100" \">');
 		},function(err){ alert(JSON.stringify(err)) } );  
 	},	
 }
