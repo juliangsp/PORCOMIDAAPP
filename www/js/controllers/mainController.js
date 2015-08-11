@@ -7,7 +7,8 @@
 var userLat = 20.6596;
 var userLng = -103.3496;
 //var serverURL = "http://192.168.100.200:3005";
-var serverURL = "http://192.168.100.200:3005";
+var serverURL = "http://porcomida.com";
+
 
 
 var mainC = {
@@ -151,7 +152,7 @@ var rh = {
 	platilloImagen : function(value){
 	var html=''
 	   if(value!=null){ 
-	        html+='<img id="foto" src="' serverURL + value +'" class="fotoPlatillo">';
+	        html+='<img id="foto" src="' + serverURL + "/" + value +'" class="fotoPlatillo">';
 	   }
     return html;
 	},
