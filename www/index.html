@@ -33,7 +33,7 @@
 <script src="js/numeral/min/numeral.min.js"></script>
 
 <!-- CONTROLLERS -->
-<script src="js/controllers/ctrl_loginD.js"></script>  
+<script src="js/controllers/ctrl_login.js"></script>  
 <script src="js/controllers/ctrl_order.js"></script> 
 <script src="js/controllers/ctrl_core.js"></script>     <!-- ROUTE CONTROLLER -->
 <script src="js/controllers/mainController.js"></script>  <!-- FOUNDATION &  DB CONTROLLER -->
@@ -107,7 +107,14 @@
 
 	</div>
 	<!-- ********************************************************************* -->
-	<div data-role="page" id="platillo"></div>
+	<div data-role="page" id="platillo">
+		   <div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Platillo</h1>
+	    </div>
+
+	    <div role="main" id="platilloP" class=""></div><!-- /content -->
+	</div>
 	<!-- ********************************************************************* -->
 	<div data-role="page" id="cart">
 	     <div data-role="header" data-position="fixed">

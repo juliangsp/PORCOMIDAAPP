@@ -4,7 +4,7 @@
 
 var ctrl_platillo = {
 	data : {},
-	pageDiv : "#platillo",
+	pageDiv : "#platilloP",
 	mainObj : {},
 	init : function(data,template){
 		ctrl_platillo.data = data;
