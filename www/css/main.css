@@ -79,6 +79,12 @@ img { -ms-interpolation-mode: bicubic; image-rendering: -moz-crisp-edges; }
 	margin: 10px;
 }
 
+.bButton{
+	float: left;
+	margin:10px;
+	cursor: pointer;	
+}
+
 
 .paloma
 {

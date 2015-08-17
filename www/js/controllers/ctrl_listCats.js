@@ -4,7 +4,7 @@
 
 var ctrl_listCats = {
 	data : {},
-	pageDiv : "#listCats",
+	pageDiv : "#listCatsP",
 	init : function(data,template){
 		ctrl_listCats.data = data;
 		ctrl_listCats.render();

@@ -4,7 +4,7 @@
 
 var ctrl_resume = {
 	data : {},
-	pageDiv : "#resume",
+	pageDiv : "#resumeP",
 	init : function(data,template){
 		ctrl_resume.data = data;
 		ctrl_resume.render();
@@ -30,6 +30,16 @@ var ctrl_resume = {
 		 myScroll = new IScroll('#wrapperList',{  
 		 	click:true })
 		
+     $(window).bind('resize', function() {
+    console.error("onResize");
+    if (myScroll !== undefined) {
+        setTimeout(function() {
+            myScroll.refresh();
+            myScroll.scrollToElement($elm[0], 200);
+        }, 100);
+    }
+    });
+
 		showCheckOut();
 	}
 }

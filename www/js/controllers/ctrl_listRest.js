@@ -4,7 +4,7 @@
 
 var ctrl_listRest = {
 	data : {},
-	pageDiv : "#listRest",
+	pageDiv : "#listRestP",
 	restData : "",
 	init : function(data){
 		ctrl_listRest.data = data;

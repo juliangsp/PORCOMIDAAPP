@@ -4,7 +4,7 @@
 
 var ctrl_listMenu = {
 	data : {},
-	pageDiv : "#listMenu",
+	pageDiv : "#listMenuP",
 	init : function(data,template){
 		ctrl_listMenu.data = data;
 		ctrl_listMenu.render();

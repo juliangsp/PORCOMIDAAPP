@@ -10,7 +10,7 @@
 <!--  HOME ============================================================-->
 	<script id='mainT' type='text/ractive'>
     
-    <div id="map" style="display:none;"></div>
+    
 	{{>menuT}}
 
 	 
@@ -81,12 +81,6 @@
 
 <!-- Cart  ============================================================-->
 <script id='cartT' type='text/ractive'>
-
-    <div data-role="header" data-position="fixed">
-     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
-    <h1>Carrito</h1>
-    </div>
-
 
 
     <div id="wrapperList">
@@ -179,16 +173,10 @@
 <!-- Resume  ============================================================-->
 <script id='resumeT' type='text/ractive'>
 
-    <div data-role="header" data-position="fixed">
-     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
-    <h1>Resumen</h1>
-    </div>
+
 
     <div id="wrapperList">
         <div id="scroller" data-iscroll>
-
-
-      
             
     <div id="check_Pedido" class="infoModule">        
    <div id="alerts"></div>  
@@ -441,10 +429,7 @@
 <!-- Listado 1  ============================================================-->
 <script id='listRestT' type='text/ractive'>
 
-	<div data-role="header" data-position="fixed">
-     <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
-    <h1>Restaurantes</h1>
-    </div>
+
 
 	<div id="wrapperList">
 	    <div id="scroller" data-iscroll>
@@ -471,22 +456,13 @@
 
 <!-- Listado Menú  ============================================================-->
 <script id='listCatsT' type='text/ractive'>
-
-    <div data-role="header" data-position="fixed">
-    <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
-    <h1>Categorías</h1>
-    </div>
-
     <div id="wrapperList">
         <div id="scroller" data-iscroll>
             <ul data-role="listview" id="listview">
                 {{#each CATEGORIES}}
                 <li>
                     <a on-tap="catDetail" data-transition="fade">
-                       
                             <h3>{{NAME}}</h3>    
-                        
-                        
                     </a>
                 </li>
                 {{/each}}
@@ -500,11 +476,6 @@
 
 <!-- Listado Menú  ============================================================-->
 <script id='listMenuT' type='text/ractive'>
-
-    <div data-role="header" data-position="fixed">
-    <a data-rel="back"  data-direction="reverse"><i class="fa fa-arrow-left"></i></a>
-    <h1>Menú</h1>
-    </div>
 
     <div id="wrapperList">
         <div id="scroller" data-iscroll>

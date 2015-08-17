@@ -65,33 +65,67 @@
 
 	<div data-role="page" id="mainScreen">
 
-	<div id="map" style="display:none;"></div>
-		<div data-role="header" id="headerLogo" data-position="fixed">
-	        <div id="mainHeader">
-	              <div id="logoHeader">
-	                <img src="img/logo_azul.png">
-	            </div>
-			</div>
+		<div id="map" style="display:none;"></div>
+			<div data-role="header" id="headerLogo" data-position="fixed">
+		        <div id="mainHeader">
+		              <div id="logoHeader">
+		                <img src="img/logo_azul.png">
+		            </div>
+				</div>
 		</div>
 
 		<div role="main" id="mainscreenP" class="ui-content"></div><!-- /content -->
 	</div>
 	<!-- ********************************************************************* -->
-	<div data-role="page" id="listRest"></div>
+	<div data-role="page" id="listRest">
+		<div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Restaurantes</h1>
+	    </div>
+
+	    <div role="main" id="listRestP" class=""></div><!-- /content -->
+
+	</div>
 	<!-- ********************************************************************* -->
-	<div data-role="page" id="listCats"></div>
+	<div data-role="page" id="listCats">
+		<div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Categorías Menú</h1>
+	    </div>
+
+	    <div role="main" id="listCatsP" class=""></div><!-- /content -->
+
+	</div>
 	<!-- ********************************************************************* -->
-	<div data-role="page" id="listMenu"></div>
+	<div data-role="page" id="listMenu">
+		<div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Platillos</h1>
+	    </div>
+
+	    <div role="main" id="listMenuP" class=""></div><!-- /content -->
+
+	</div>
 	<!-- ********************************************************************* -->
 	<div data-role="page" id="platillo"></div>
 	<!-- ********************************************************************* -->
 	<div data-role="page" id="cart">
-	     
+	     <div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Carrito</h1>
+	    </div>
+
+	    <div role="main" id="cartP" class=""></div><!-- /content -->
 
 	</div>
 	<!-- ********************************************************************* -->
 	<div data-role="page" id="resume">
+			<div data-role="header" data-position="fixed">
+	    	  <div class="bButton"  data-direction="reverse"><img src="img/backArrow.png"></div>
+	    	<h1>Finalizar Orden</h1>
+	    </div>
 
+	    <div role="main" id="resumeP" class=""></div><!-- /content -->
 	</div>
 	<!-- ********************************************************************* -->
 	<div data-role="page" id="finalizado"></div>

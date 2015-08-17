@@ -41,7 +41,7 @@ console.log(platilloID,"platid")
 
 		ctrl_platillo.mainObj.on('savePlatillo',function(event){
 			 vObj.comentarios = $('#PLATILLO_COMS').val();
-			 console.log(vObj.comentarios + "comentarios" )
+			 restModel.idRest = idRest;
      		 ctrl_order.saveOrder(vObj,platilloID,ctrl_platillo.saveDone);
 			
 		});

@@ -47,6 +47,13 @@ function initApp(){
       $.mobile.back();
   })
 
+   $('input, textarea').bind('focus', function(e) {
+    console.error("onFocus");
+    $elm = $(this);
+});
+
+   
+
 
 }
 

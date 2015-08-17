@@ -101,8 +101,7 @@ var ctrl_order = {
 	    else{
 	      restModel.platillos.push(vObj);  
 	    }
-      console.log(restModel)
-	    console.log("psabdo cac")
+      
 	   ctrl_order.updateOrder(restModel,callback)
 	},
   sumaPlatillo : function(vObj){

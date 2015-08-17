@@ -4,7 +4,7 @@
 
 var ctrl_cart = {
 	data : {},
-	pageDiv : "#cart",
+	pageDiv : "#cartP",
 	init : function(data,template){
 		ctrl_cart.data = data;
 		ctrl_cart.checkOrders()
@@ -20,10 +20,15 @@ var ctrl_cart = {
             url: serverURL + '/ordenes/existsOrder',
             dataType: 'JSON'
              }).done(function( response ) {
+              console.log("pre")
+              console.log(response)
+              console.log(response.platillos)
+              console.log("pre darta")
              restModel = response;
-            	if(response.length>0){
+            	if(response.platillos!=undefined && response.platillos.length>0){
                 ctrl_cart.getRestInfo(response.idRest)  
               }else{
+                console.log("renderind EMpty")
                 ctrl_cart.render();
               }
               
@@ -33,7 +38,7 @@ var ctrl_cart = {
     	});   
 	},
 	getRestInfo : function(idRest){
-		console.log(idRest)
+		console.log(idRest + " id REst")
         $.ajax({
             type: 'POST',
             data: {idRest:idRest},
