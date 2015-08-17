@@ -6,7 +6,6 @@
   var puntosFB=0;
   var direcciones = [];
   var loc = {};
-  var serverURL = "http://192.168.100.200:3005";
   var logued = false;
   var userInfo = {}
 

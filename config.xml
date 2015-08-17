@@ -66,6 +66,8 @@
     <preference name="SplashScreen" value="screen"/>
     <preference name="SplashScreenDelay" value="7000" />
 
+    <preference name="HideKeyboardFormAccessoryBar" value="true" />
+
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/android/drawable-ldpi/background9.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/android/drawable-mdpi/background9.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/android/drawable-hdpi/background9.png" />
