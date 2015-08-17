@@ -64,7 +64,7 @@
 
      <gap:plugin name="org.apache.cordova.splashscreen" />
     <preference name="SplashScreen" value="screen"/>
-    <preference name="SplashScreenDelay" value="4000" />
+    <preference name="SplashScreenDelay" value="7000" />
 
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/android/drawable-ldpi/background9.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/android/drawable-mdpi/background9.png" />
@@ -76,6 +76,8 @@
     <gap:plugin name="org.apache.cordova.core.geolocation" version="0.3.10" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
+    <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/geolocation" />

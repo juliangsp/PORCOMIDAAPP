@@ -235,7 +235,7 @@ var ms = {
 	},
 	searchNearBy : function(callback){
 		var filtros = ms.setFiltro();
-        url= 'http://192.168.100.200:3005/usuarios/searchnearby';
+        url= serverURL + '/usuarios/searchnearby';
         $.ajax({
             type: 'POST',
             data: filtros,
