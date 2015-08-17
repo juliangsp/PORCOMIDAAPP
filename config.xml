@@ -62,6 +62,17 @@
         <param name="APP_NAME" value="porcomida" />
     </gap:plugin>
 
+     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="SplashScreenDelay" value="4000" />
+
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/android/drawable-ldpi/background9.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/android/drawable-mdpi/background9.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/android/drawable-hdpi/background9.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/android/drawable-xhdpi/background9.png" />
+
+    <gap:splash src="splash.png" />
+
     <gap:plugin name="org.apache.cordova.core.geolocation" version="0.3.10" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />

@@ -1,5 +1,5 @@
 
-var deploy = "PROD"
+var deploy = "DEV"
 
 
 
@@ -36,9 +36,17 @@ $(document).ready(function() {
 
 function initApp(){
  
-   $.mobile.defaultPageTransition = 'slide';
+  $.mobile.pageContainer = $('#container');
+   $.mobile.defaultPageTransition = 'slideoverleft';
+   //$.mobile.defaultHomeScroll = 0;
+   $( "#pop1" ).popup();
 
   mainC.init()
+
+   $('.bButton').click(function(){
+      $.mobile.back();
+  })
+
 
 }
 

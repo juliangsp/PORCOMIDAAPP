@@ -3,7 +3,7 @@
 ***********************************************************/
 var ctrl_home = {
 	data : {},
-	pageDiv : "#mainScreen",
+	pageDiv : "#mainscreenP",
 	map  : {},
 	init : function(data,template){
 		ctrl_home.data = data;
@@ -16,7 +16,7 @@ var ctrl_home = {
 		
 
 		mainObj.on('buscar',function(event){
-			console.log(gGeo.oVars.lat,"YAYAY")
+
 			if(gGeo.oVars.lat!=null){
 				jqm.showLoader("buscando");
 				ms.searchNearBy(ctrl_home.searchComplete);	
@@ -28,7 +28,7 @@ var ctrl_home = {
 		mainObj.on('autoLocate',function(event){
 			ctrl_home.getLocation();
 		})
-		
+	//	
 		gGeo.init();
   		ctrl_login.init(ctrl_home.loginRet)
 

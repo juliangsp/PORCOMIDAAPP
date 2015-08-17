@@ -56,11 +56,10 @@ var jqm = {
 		  html: ""
 		});
 	},
-	dialog : function(params){
-		$('#diag_Title').html(params.title)
-		$('#diag_text').html(params.text)
-		$.mobile.changePage('#dialog1', 'pop', true, true);
-		
+	popup : function(params){
+		$('#pop_Title').html(params.title)
+		$('#pop_text').html(params.text)
+		$( "#pop1" ).popup( "open" )
 	}
 
 }

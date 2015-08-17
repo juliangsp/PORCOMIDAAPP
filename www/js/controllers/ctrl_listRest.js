@@ -19,6 +19,7 @@ var ctrl_listRest = {
 		var mainObj = template.render('#listRestT',ctrl_listRest.pageDiv,data)
 
 		mainObj.on('listDetail',function(event){
+			jqm.showLoader("Cargando...")
 			idRest = event.context._id
 			ctrl_listRest.getRestInfo(idRest);
 
